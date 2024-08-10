@@ -1,1 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Analyzer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Text Analyzer</h1>
+        </div>
+    </header>
 
+    <main class="container">
+        <div class="main-content">
+            <section class="card input-card">
+                <h2>Input Text</h2>
+                <textarea id="textInput" placeholder="Enter or paste your text here..." rows="15"></textarea> <!-- Increased rows -->
+                <input type="file" id="fileInput" accept=".txt" />
+                <button id="analyzeButton">Analyze</button>
+            </section>
+
+            <section id="resultsSection" class="card results-card">
+                <h2>Results</h2>
+                <p id="lineCount">Line Count: 0</p>
+                <p id="wordCount">Word Count: 0</p>
+                <p id="consonantCount">Consonant Count: 0</p>
+                <p id="vowelCount">Vowel Count: 0</p>
+                <p id="numberCount">Number Count: 0</p> <!-- New number count -->
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p><h3><b>Made by:</b> Mallika Muskan,  Sonali Kumari,  Rashi Agrawal</h3></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
