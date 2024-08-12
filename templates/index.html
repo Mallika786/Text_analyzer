@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Analyzer</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Text Analyzer</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="main-content"> 
+
+            <section class="card input-card">
+                <h2>Input Text</h2>
+
+                <form id="uploadForm">
+                <textarea id="textInput" placeholder="Enter or paste your text here..." rows="15"></textarea> <!-- Increased rows -->
+                <input type="file" id="fileInput" accept=".txt" />
+                <button type="submit">Upload File</button>
+                </form>
+
+            </section>
+
+            <section id="resultsSection" class="card results-card">
+                <h2>Results</h2>
+                <div class="results" id="results">
+
+                </div>
+                    <!-- New number count -->
+            </section>
+
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p><h3><b>Made by:</b> Mallika Muskan,  Sonali Kumari,  Rashi Agrawal</h3></p>
+        </div>
+    </footer>
+
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const fileInput = document.getElementById('fileInput');
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    const results = document.getElementById('textInput');
+                    results.innerHTML = `<p>Lines: ${data.line_count}</p><p>Words: ${data.word_count}</p>`;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+
+    
+</body>
+</html>
