@@ -7,7 +7,7 @@ app = Flask(__name__)
 # Route for home page
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('templates/index.html')
 
 # Route to handle file upload
 @app.route('/upload', methods=['POST'])
