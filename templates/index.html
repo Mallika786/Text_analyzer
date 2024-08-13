@@ -196,8 +196,23 @@ body::after {
                 if (data.error) {
                     alert(data.error);
                 } else {
-                    const results = document.getElementById('textInput');
-                    results.innerHTML = `<p>Lines: ${data.line_count}</p><p>Words: ${data.word_count}</p>`;
+                    const fileContent = document.getElementById('textInput');
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        fileContent.value = event.target.result;
+                    }
+                    reader.readAsText(fileInput.files[0]);
+
+                    const results = document.getElementById('results');
+                    results.innerHTML = `
+                        <p>Lines: ${data.line_count}</p>
+                        <p>Words: ${data.word_count}</p>
+                        <p>Characters: ${data.character_count}</p>
+                        <p>File Size: ${data.file_size} bytes</p>
+                        <p>Most Frequent Word: "${data.most_frequent_word}" (${data.most_frequent_word_count} times)</p>
+                        <p>Number of Unique Words: ${data.unique_words_count}</p>
+                        <p>Longest Word: ${data.longest_word}</p>
+                    `;
                 }
             })
             .catch(error => {
