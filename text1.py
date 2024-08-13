@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, jsonify
+from collections import Counter
 import os
 
 app = Flask(__name__)
