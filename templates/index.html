@@ -158,7 +158,7 @@ body::after {
                 <input type="file" id="fileInput" accept=".txt" />
                 <button type="submit">Upload File</button>
                 </form>
-
+                <button id="speakButton">Speak Text</button>
             </section>
 
             <section id="resultsSection" class="card results-card">
@@ -218,6 +218,15 @@ body::after {
             .catch(error => {
                 console.error('Error:', error);
             });
+        });
+        document.getElementById('speakButton').addEventListener('click', function() {
+            const text = document.getElementById('fileContent').value;
+            if (text) {
+                const speech = new SpeechSynthesisUtterance(text);
+                speechSynthesis.speak(speech);
+            } else {
+                alert('No text available for speech.');
+            }
         });
     </script>
 

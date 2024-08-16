@@ -7,7 +7,7 @@ app = Flask(__name__)
 # Route for home page
 @app.route('/')
 def home():
-    return render_template('templates/index.html')
+    return render_template('index.html')
 
 # Route to handle file upload
 @app.route('/upload', methods=['POST'])
@@ -27,7 +27,7 @@ def upload_file():
     word_frequency = Counter(words)
     most_frequent_word = word_frequency.most_common(1)[0] if word_frequency else ("None", 0)
     unique_words_count = len(word_frequency)
-    longest_word = max(words, key=len) if words else ""
+    longest_word = max(words, key=len) if words else " "
 
     return jsonify({
         'line_count': len(lines),
