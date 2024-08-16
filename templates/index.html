@@ -219,6 +219,29 @@ body::after {
                 console.error('Error:', error);
             });
         });
+        document.getElementById('analyzeTextButton').addEventListener('click', function() {
+            const textContent = document.getElementById('textInput').value;
+
+            if (!textContent.trim()) {
+                alert('Please enter some text or upload a file first.');
+                return;
+            }
+
+            fetch('/analyze_text', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ text: textContent })
+            })
+            .then(response => response.json())
+            .then(data => {
+                displayResults(data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+
+
         document.getElementById('speakButton').addEventListener('click', function() {
             const text = document.getElementById('textInput').value;
             if (text) {
