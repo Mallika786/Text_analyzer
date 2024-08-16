@@ -220,7 +220,7 @@ body::after {
             });
         });
         document.getElementById('speakButton').addEventListener('click', function() {
-            const text = document.getElementById('fileContent').value;
+            const text = document.getElementById('textInput').value;
             if (text) {
                 const speech = new SpeechSynthesisUtterance(text);
                 speechSynthesis.speak(speech);
