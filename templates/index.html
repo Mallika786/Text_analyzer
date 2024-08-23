@@ -9,7 +9,7 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background: url('bcg1.png') no-repeat center center fixed;
+            background: url('{{ url_for('static', filename='bcg2.png') }}') no-repeat center center fixed;
             background-size: cover;
             color: #ffffff;
             display: flex;
@@ -22,7 +22,7 @@
             color: #f0f0f0;
             padding: 1rem;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            background-image: url('pg2.png');
+            background-image: url('{{ url_for('static', filename='pg1.png') }}');
             background-position: center left;
             background-repeat: repeat;
         }
@@ -108,7 +108,7 @@
             text-align: center;
             box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.544);
             width: 100%;
-            background-image: url('pg2.png');
+            background-image: url('{{ url_for('static', filename='pg2.png') }}');
             background-position: center right;
             background-repeat: repeat;
         }
@@ -152,11 +152,12 @@
                 <div id="results"></div>
             </section>
         </div>
+        <br><br><br><br>
     </main>
 
     <footer>
         <div class="container">
-            <p>Made by: Mallika Muskan, Sonali Kumari, Rashi Agrawal</p>
+            <p><h3>Made by: Mallika Muskan, Sonali Kumari, Rashi Agrawal</h3></p>
         </div>
     </footer>
 
